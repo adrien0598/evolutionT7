@@ -1,0 +1,2 @@
+Needs BWA, VarScan and the raw data to be in the same directory.
+An empty "BAM_BWA" directory need to be create in order to save the bam file created.
