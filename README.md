@@ -1,2 +1,17 @@
-# evolutionT7
-All the script used for the evolution T7 project (data generation, analysis and stuff)
+# Overview
+Code for analysis of the NGS data use in <link>. Contain processing, variant calling and analysis.
+
+# Data availability
+
+Processed data is available at: ...
+
+# Abstract
+
+abstract
+  
+# Contact
+
+Lead contact for data and materials availability: Ioana popescu <link>
+
+Lead analyst : Adrien Thomas <link>
+  
