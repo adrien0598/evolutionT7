@@ -23,7 +23,9 @@ for (i in levels(ortho1$Mutator)){
   for (j in levels(ortho1$Region)){
     mutations = c(mutations, (sum(ortho1$Occurences[ortho1$Mutator == i & ortho1$Region == j])/sum(ortho1$Depth[ortho1$Mutator == i & ortho1$Region == j]))*1000)
     zone = c(zone, j)
-    if (substring(i, nchar(i)-2, nchar(i)) == "-T7"){
+    print(substring(i, nchar(i)-1, nchar(i)))
+    if (substring(i, nchar(i)-1, nchar(i)) == "T7"){
+      print('oui')
       if (nchar(substring(i, 1,nchar(i)-3)) > 0){
         mutator = c(mutator, substring(i, 1,nchar(i)-3))
       }
@@ -32,7 +34,8 @@ for (i in levels(ortho1$Mutator)){
       }
       pol = c(pol, "T7")
     }
-    else{
+    else if (substring(i, nchar(i)-2, nchar(i)) == "CGG"){
+      print('non')
       if (nchar(substring(i, 1,nchar(i)-4)) > 0){
         mutator = c(mutator, substring(i, 1,nchar(i)-4))
       }
@@ -40,6 +43,10 @@ for (i in levels(ortho1$Mutator)){
         mutator = c(mutator, "no")
       }
       pol = c(pol, "CGG")
+    }
+    else {
+      pol = c(pol, "no")
+      mutator = c(mutator, "no")
     }
   }
 }
