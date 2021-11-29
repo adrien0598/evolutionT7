@@ -130,7 +130,7 @@ ggsave("Figure/Fig.4-d.png",
        height = 20,  
        units = "cm",
        dpi = 300)
-ggsave("Figure/Fig.4-e.png", 
+ggsave("Figure/Fig.4-d*.png", 
        plot = gg5,
        width = 25, 
        height = 20, 
