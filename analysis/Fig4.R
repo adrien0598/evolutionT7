@@ -91,19 +91,25 @@ gg3 <- ggplot(tmp[tmp$Batch == "A",]) +
                             "TadA*-CGG", "evoAPOBEC1-BE4max-CGG", "evo-CDA1-BE4max-CGG",
                             "ABE8.20-m-CGG"))
 
-gg4 <- ggplot(tmp[tmp$Batch == "A",]) + 
+gg4 <- ggplot(tmp[(tmp$Batch == "A"),]) + 
   aes(x = Polymerase, fill = Orientation) +
   geom_bar()
 
 gg5 <- ggplot(tmp[(tmp$Batch == "A" & tmp$Mutator != "T7" & tmp$Mutator != "CGG"),]) + 
   aes(x = Polymerase, fill = Orientation) +
   geom_bar()
+
+gg6 <- ggplot(tmp[(tmp$Batch == "A" & tmp$Mutator != "T7" & tmp$Mutator != "CGG"),]) + 
+  aes(x = Polymerase, fill = Orientation) +
+  geom_bar(position = "fill")
+
 # Plot
 gg
 gg2
 gg3
 gg4
 gg5
+gg6
 
 # Save
 ggsave("Figure/Fig.4-a.png", 
@@ -130,12 +136,17 @@ ggsave("Figure/Fig.4-d.png",
        height = 20,  
        units = "cm",
        dpi = 300)
-ggsave("Figure/Fig.4-d*.png", 
+ggsave("Figure/Fig.4-d+.png", 
        plot = gg5,
        width = 25, 
        height = 20, 
        units = "cm",
        dpi = 300)
-
+ggsave("Figure/Fig.4-d++.png", 
+       plot = gg6,
+       width = 25, 
+       height = 20, 
+       units = "cm",
+       dpi = 300)
 
 

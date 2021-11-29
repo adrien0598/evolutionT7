@@ -73,13 +73,14 @@ gg2
 # Save
 ggsave("Figure/Fig.3.png", 
       plot = gg,
-      width = 35, 
-      height = 20, 
+      width = 35,
+      height = 20,
       units = "cm",
       dpi = 300)
-ggsave("Figure/Fig.3*.png", 
+ggsave("Figure/Fig.3+.png", 
        plot = gg2,
-       width = 35, 
-       height = 20, 
+       width = 35,
+       height = 20,
        units = "cm",
        dpi = 300)
+

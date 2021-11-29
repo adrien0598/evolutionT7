@@ -1,3 +1,14 @@
-Fig1-a : 
-Fig1-b :
-Fig2 :
+Fig1-a : Variant reads against total reads for each mutator and each polymerase. We only take into acount mutations from C:G to T:A (cytosine desaminase) in the targeted region. Batch A
+Fig1-b : Variant reads against total reads for each mutator and each polymerase. We only take into acount mutations from C:G to T:A (cytosine desaminase) in the targeted region. Batch B
+Fig1-c : Variant reads against total reads for each mutator and each polymerase. We only take into acount mutations from A:T to G:C (adenine desaminase) in the targeted region. Batch B
+Fig1-d : Variant reads against total reads for each mutator and each polymerase. We only take into acount mutations from A:T to G:C (adenine desaminase) in the targeted region. Batch A
+Fig2 : Average mutation number per Kilo Base in the non targeted region versus in the targeted region for each polymerase. plasmid without polymerase are not taking into account.
+Fig2+ : Average mutation number per Kilo Base in the non targeted region versus in the targeted region for each polymerase. plasmid without polymerase or without mutator are not taking into account.
+Fig3 : Average mutation number per Kilo Base for each mutator and polymerase (minimum depth : 30)
+Fig3+ : Average mutation number per Kilo Base for each mutator and polymerase. Comparison between batch A and D is shown where it exists (minimum depth : 30).
+Fig.4-a : nul
+Fig.4-b : number of differents mutations for each mutator/polymerase, showing the strand of occurence (reverse or forward). Batch A
+Fig.4-c : number of differents mutations for each mutator/polymerase, showing the reaction that may have caused the mutation (cytosine deamination or adenine deamination). Batch A
+Fig.4-d : number of differents mutations for each polymerase, showing the strand of occurence (reverse or forward). Batch A 
+Fig.4-d+ : number of differents mutations for each polymerase, showing the strand of occurence (reverse or forward). We do not consider the plasmids without mutator. Batch A 
+Fig.4-d++ : realtive number of differents mutations for each polymerase, showing the strand of occurence (reverse or forward). We do not consider the plasmids without mutator. Batch A 
