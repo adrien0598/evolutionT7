@@ -1,5 +1,5 @@
 # Overview
-Code for analysis of the NGS data use in <link>. Contain processing, variant calling and analysis.
+Code for analysis of the NGS data used in <link>. Contain processing, variant calling and analysis.
 
 # Data availability
 
@@ -11,7 +11,7 @@ abstract
   
 # Contact
 
-Lead contact for data and materials availability: Ioana popescu <link>
+Lead contact for data and materials availability: Ioana Popescu <link>
 
 Lead analyst : Adrien Thomas <link>
   
