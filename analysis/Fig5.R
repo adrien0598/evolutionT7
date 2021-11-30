@@ -1,5 +1,5 @@
 ################################################################################
-### Fig4 : orthogonality of direction and mutation type (mutations count) ######
+### Fig4 : orthogonality of direction and mutation type (mutations number) ######
 ################################################################################
 
 # Packages
