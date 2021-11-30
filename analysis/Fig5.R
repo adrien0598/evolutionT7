@@ -1,5 +1,5 @@
 ################################################################################
-### Fig4 : orthogonality of direction and mutation type (mutations number) ######
+### Fig5 : orthogonality of direction and mutation type (mutations number) #####
 ################################################################################
 
 # Packages
@@ -159,6 +159,10 @@ gg1 <- ggplot(gg) +
                             "CGG without mutator")) +
   scale_y_continuous(name = "Mutation number") +
   labs(fill = "Mutation type")
+
+gg2 <-ggplot(gg) + #tp10 target
+  aes()
+
 
 # Plot
 gg1
