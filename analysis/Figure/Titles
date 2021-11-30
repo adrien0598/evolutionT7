@@ -12,3 +12,7 @@ Fig.4-c : number of differents mutations for each mutator/polymerase, showing th
 Fig.4-d : number of differents mutations for each polymerase, showing the strand of occurence (reverse or forward). Batch A 
 Fig.4-d+ : number of differents mutations for each polymerase, showing the strand of occurence (reverse or forward). We do not consider the plasmids without mutator. Batch A 
 Fig.4-d++ : realtive number of differents mutations for each polymerase, showing the strand of occurence (reverse or forward). We do not consider the plasmids without mutator. Batch A 
+
+ATTENTION all the fig4 are in mutation COUNT (!= mutation number)
+
+Fig5 : cool
