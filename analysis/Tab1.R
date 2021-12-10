@@ -97,7 +97,9 @@ tab = data.frame(Mutator = c("pSEVA221", "T7", "AID-T7", "pmCDAI-T7",
 a = c()
 for (i in tab$Mutator){
   a = c(a, gg$Mutation_number[(gg$Mutator == i & gg$Region == "targeted")] /
-          gg$Mutation_number[(gg$Mutator == i & gg$Region == "non-targeted")])
+          (gg$Mutation_number[(gg$Mutator == i & gg$Region == "non-targeted")] +
+             gg$Mutation_number[(gg$Mutator == i & gg$Region == "targeted")])
+        )
 }
 tab[['Target_specificity']] = a
 
@@ -129,9 +131,12 @@ for (i in tab$Mutator){
   mut = c(mut, 
           sum(tmp$Occurences[(tmp$Mutator == i & 
                                 tmp$Mutation_type == trans$mutation[trans$mutator == i])])/
-          sum(tmp$Occurences[(tmp$Mutator == i & 
+          (sum(tmp$Occurences[(tmp$Mutator == i & 
                                 tmp$Mutation_type != "uncategorized" & 
-                                tmp$Mutation_type != trans$mutation[trans$mutator == i])]))
+                                tmp$Mutation_type != trans$mutation[trans$mutator == i])]) +
+             sum(tmp$Occurences[(tmp$Mutator == i & 
+                                   tmp$Mutation_type == trans$mutation[trans$mutator == i])]))
+          )
 }
 tab[["Mutation_specificity"]] = mut
 
@@ -141,9 +146,12 @@ for (i in tab$Mutator){
   mut = c(mut, 
           sum(tmp$Occurences[(tmp$Mutator == i & 
                                 tmp$Type == trans$reaction[trans$mutator == i])])/
-            sum(tmp$Occurences[(tmp$Mutator == i & 
+            (sum(tmp$Occurences[(tmp$Mutator == i & 
                                   tmp$Type != "uncategorized" & 
-                                  tmp$Type != trans$reaction[trans$mutator == i])]))
+                                  tmp$Type != trans$reaction[trans$mutator == i])]) + 
+               sum(tmp$Occurences[(tmp$Mutator == i & 
+                                     tmp$Type == trans$reaction[trans$mutator == i])]))
+          )
 }
 tab[["Reaction_specificity"]] = mut
 
@@ -153,9 +161,12 @@ for (i in tab$Mutator){
   mut = c(mut, 
           sum(tmp$Occurences[(tmp$Mutator == i & 
                                 tmp$Orientation == trans$strand[trans$mutator == i])])/
-            sum(tmp$Occurences[(tmp$Mutator == i & 
+            (sum(tmp$Occurences[(tmp$Mutator == i & 
                                   tmp$Orientation != "uncategorized" & 
-                                  tmp$Orientation != trans$strand[trans$mutator == i])]))
+                                  tmp$Orientation != trans$strand[trans$mutator == i])]) +
+               sum(tmp$Occurences[(tmp$Mutator == i & 
+                                     tmp$Orientation == trans$strand[trans$mutator == i])]))
+          )
 }
 tab[["Strand_specificity"]] = mut
 
