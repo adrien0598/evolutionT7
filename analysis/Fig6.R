@@ -54,16 +54,29 @@ for (i in levels(gg$Mutator)){
                                    gg$Mutator == i)]))
 }
 gg = data.frame(Mutator = mutator, Mutation_rate = mutrate, Activity = reac)
-gg = na.omit(gg)
-gg$Mutation_rate = gg$Mutation_rate # per generations
+#gg = na.omit(gg)
+gg$Mutation_rate = gg$Mutation_rate/40 # per generations
 
 # Graph
 ## modeling plot (/mutation site)
-gg1 <- ggplot(gg) +
-  aes(x = Mutator, y = (Mutation_rate/1.23)-0.0065) + 
+gg$Mutation_rate[is.na(gg$Mutation_rate)] = 0
+tmp = c()
+tmp2 = c()
+loop = 1
+for (i in c(1:nrow(gg))){
+  if (loop %% 4 == 0){
+    tmp = c(tmp, sum(gg$Mutation_rate[(i-3):i]))
+    tmp2 = c(tmp2, gg$Mutator[i])
+  }
+  loop = loop+1
+}
+ggg = data.frame(Mutator = tmp2, Mutation_rate = tmp)
+
+gg1 <- ggplot(ggg) +
+  aes(x = Mutator, y = (Mutation_rate*32) -0.013) + 
   geom_col() +
   xlab("Mutator") +
-  ylab("Mutation rate (*number of sites)") +
+  ylab("Mutation rate (Corrected)") +
   theme(axis.text.x = element_text(angle=45, hjust = 1)) +
   scale_x_discrete(name ="Mutator", 
                    limits=c("AID-T7", "pmCDAI-T7", "rAPOBEC1-T7", 
@@ -72,6 +85,7 @@ gg1 <- ggplot(gg) +
                             "TadA*-CGG", "evoAPOBEC1-BE4max-CGG", "evo-CDA1-BE4max-CGG",
                             "ABE8.20-m-CGG"))
 
+# Save
 ggsave("Figure/Fig.6-a.png", 
        plot = gg1,
        width = 30, 
@@ -105,6 +119,7 @@ gg$Mutation_rate[((gg$Activity == "T -> C" | gg$Activity == "A -> G") &
                     !(gg$Mutator %in% c("TadA*-T7", "ABE8.20-m-T7",
                                       "TadA*-CGG", "ABE8.20-m-CGG")))] = NA
 gg = na.omit(gg)
+
 gg3 <- ggplot(gg) +
   aes(x = Mutator, y = Mutation_rate, fill = Activity) + 
   geom_col() +
@@ -117,6 +132,7 @@ gg3 <- ggplot(gg) +
                             "ABE8.20-m-T7", "", "AID-CGG", "pmCDA1-CGG", "rAPOBEC1-CGG",
                             "TadA*-CGG", "evoAPOBEC1-BE4max-CGG", "evo-CDA1-BE4max-CGG",
                             "ABE8.20-m-CGG"))
+
 # Save
 ggsave("Figure/Fig.6-b.png", 
        plot = gg3,
